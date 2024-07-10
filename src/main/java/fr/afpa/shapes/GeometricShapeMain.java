@@ -1,4 +1,8 @@
 package fr.afpa.shapes;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /*
 	Objectif : développer des classes représentant des formes géométriques (Rectangle, Cercle et Triangle)
 	Pour chacune de ces classes il faudra implémenter deux méthodes :
@@ -33,15 +37,54 @@ package fr.afpa.shapes;
 	 -> plus d'informations par ici https://codegym.cc/fr/groups/posts/fr.575.math-pi-en-java
 
 */
-class GeometricShapeMain
+public class GeometricShapeMain
 {
 	public static void main(String[] args) 
 	{
-		// TODO instancier plusieurs objets des classes Rectangle et Circle (2 instances de chaque)
+		// Instancier des objets de classe Rectangle
+        Rectangle rectangle1 = new Rectangle(5, 10);
+        Rectangle rectangle2 = new Rectangle(3, 7);
 
-		// TODO ajouter ces objets à une instance de la classe "ArrayList"
+        // Instancier des objets de classe Circle
+        Circle circle1 = new Circle(4);
+        Circle circle2 = new Circle(6);
+
+		
+		System.out.println("\n----- Afficher les périmètres et les aires des rectangles\" -----");
+        // Afficher les périmètres et les aires des rectangles
+		System.out.println("Rectangle 1 - Lenght: " + rectangle1.getLength() + ", Area: " + rectangle1.getWidth());
+        System.out.println("Rectangle 1 - Perimeter: " + rectangle1.calculatePerimeter() + ", Area: " + rectangle1.calculateArea());
+		System.out.println("Rectangle 2 - Lenght: " + rectangle2.getLength() + ", Area: " + rectangle2.getWidth());
+        System.out.println("Rectangle 2 - Perimeter: " + rectangle2.calculatePerimeter() + ", Area: " + rectangle2.calculateArea());
+
+		System.out.println("\n----- Afficher les périmètres et les aires des cercles\" -----");
+        // Afficher les périmètres et les aires des cercles
+        System.out.println("Circle 1 - Radius: " + circle1.getRadius());
+		System.out.println("Circle 1 - Perimeter: " + circle1.calculatePerimeter() + ", Area: " + circle1.calculateArea());
+		System.out.println("Circle 2 - Radius: " + circle2.getRadius());
+        System.out.println("Circle 2 - Perimeter: " + circle2.calculatePerimeter() + ", Area: " + circle2.calculateArea());
+
+		System.out.println("\n----- Ajouter ces objets à une instance de la classe \"ArrayList\" -----");
+		// Ajouter ces objets à une instance de la classe "ArrayList"
 		// plus d'information sur la classe "ArrayList" -> https://info.clg.qc.ca/java/structures/array-list
+		// Créer une liste pour stocker les formes géométriques
+        List<Shape> shapes = new ArrayList<>();
 
-		// TODO boucler sur les éléments de la liste afin d'afficher le périmètre et l'aire de chaque objet
-	}	
-}
+		// Ajouter les objets à la liste
+    //    shapes.add(rectangle1.getLength(), rectangle1.getWidth());
+		shapes.add(rectangle1);
+		//shapes.add(rectangle2.getLength(), rectangle2.getWidth());
+        shapes.add(rectangle2);
+       // shapes.add(circle1.getRadius());
+		shapes.add(circle1);
+       // shapes.add(circle2.getRadius());
+		shapes.add(circle2);
+
+		System.out.println("\n----- Boucler sur les éléments de la liste afin d'afficher le périmètre et l'aire de chaque objet\" -----");
+		// Boucler sur les éléments de la liste afin d'afficher le périmètre et l'aire de chaque objet
+		// Afficher les périmètres et les aires des formes dans la liste
+		for (Shape shape : shapes) {
+		System.out.println("Shape : "+ shape.toString() + " - Perimeter: " + shape.calculatePerimeter() + ", Area: " + shape.calculateArea());
+		}
+	}
+}	
